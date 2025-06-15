@@ -1,0 +1,357 @@
+/* Arabic & AI-inspired Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cairo:wght@200;300;400;500;600;700;800;900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: 217 119 6;
+    --color-secondary: 30 64 175;
+    --color-accent: 5 150 105;
+    --color-arabic-gold: 217 119 6;
+    --color-arabic-sand: 246 221 193;
+    --color-arabic-desert: 194 99 12;
+    --color-arabic-oasis: 5 150 105;
+    --color-arabic-sky: 30 64 175;
+    --color-arabic-midnight: 12 24 56;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Inter', 'Cairo', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: linear-gradient(135deg, #f7f9fc 0%, #eef2f7 50%, #f7f9fc 100%);
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  /* Arabic text support */
+  [lang="ar"] {
+    direction: rtl;
+    font-family: 'Amiri', 'Cairo', serif;
+  }
+  
+  /* AI-inspired cyber elements */
+  .ai-glow {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .ai-glow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(217, 119, 6, 0.2), transparent);
+    animation: shimmer 3s infinite;
+  }
+}
+
+@layer components {
+  /* Arabic-inspired buttons */
+  .btn {
+    @apply inline-flex items-center justify-center px-8 py-4 text-sm font-semibold rounded-arabic transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 relative overflow-hidden;
+  }
+  
+  .btn-primary {
+    @apply bg-arabic-gold text-white hover:bg-arabic-desert focus:ring-arabic-gold shadow-lg hover:shadow-xl;
+    background: linear-gradient(135deg, #d97706 0%, #f59e0b 50%, #d97706 100%);
+  }
+  
+  .btn-primary:hover {
+    background: linear-gradient(135deg, #c2630c 0%, #d97706 50%, #c2630c 100%);
+    transform: translateY(-2px);
+  }
+  
+  .btn-secondary {
+    @apply bg-arabic-sand text-arabic-midnight hover:bg-arabic-desert hover:text-white focus:ring-arabic-desert border-2 border-arabic-desert;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-arabic-gold text-arabic-gold hover:bg-arabic-gold hover:text-white focus:ring-arabic-gold;
+  }
+  
+  .btn-ai {
+    @apply bg-gradient-to-r from-secondary-600 to-accent-600 text-white hover:from-secondary-700 hover:to-accent-700;
+    font-family: 'Orbitron', monospace;
+    letter-spacing: 0.05em;
+  }
+  
+  /* Arabic-inspired sections */
+  .section {
+    @apply py-20 px-4 sm:px-6 lg:px-8 relative;
+  }
+  
+  .section-arabic {
+    @apply section;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDIxNywgMTE5LCA2LCAwLjA1KSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+');
+  }
+  
+  .container {
+    @apply max-w-7xl mx-auto;
+  }
+  
+  /* Arabic-inspired cards */
+  .card {
+    @apply bg-white rounded-arabic shadow-lg hover:shadow-2xl transition-all duration-300 border border-arabic-sand/50 relative overflow-hidden;
+  }
+  
+  .card-arabic {
+    @apply card;
+    background: linear-gradient(135deg, #ffffff 0%, #fdf7f0 100%);
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
+  
+  .card-arabic::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    background: linear-gradient(135deg, #d97706, #f59e0b, #059669);
+    border-radius: inherit;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    z-index: -1;
+  }
+  
+  .card-ai {
+    @apply card;
+    background: linear-gradient(135deg, #0c1838 0%, #1e40af 50%, #059669 100%);
+    color: white;
+  }
+  
+  /* Gradient backgrounds */
+  .gradient-bg {
+    background: linear-gradient(135deg, #0c1838 0%, #1e40af 30%, #d97706 70%, #059669 100%);
+  }
+  
+  .gradient-arabic {
+    background: linear-gradient(135deg, #d97706 0%, #f59e0b 50%, #059669 100%);
+  }
+  
+  .gradient-desert {
+    background: linear-gradient(135deg, #dc2626 0%, #d97706 50%, #f59e0b 100%);
+  }
+  
+  .gradient-oasis {
+    background: linear-gradient(135deg, #059669 0%, #10b981 50%, #34d399 100%);
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-arabic-gold via-arabic-desert to-accent-600 bg-clip-text text-transparent;
+  }
+  
+  .gradient-text-ai {
+    @apply bg-gradient-to-r from-secondary-500 via-accent-500 to-primary-500 bg-clip-text text-transparent;
+    font-family: 'Orbitron', monospace;
+    font-weight: 600;
+  }
+  
+  /* Glass morphism with Arabic touch */
+  .glass {
+    @apply backdrop-blur-md bg-white/80 border border-white/30;
+    box-shadow: 0 8px 32px rgba(217, 119, 6, 0.1);
+  }
+  
+  .glass-arabic {
+    @apply backdrop-blur-md bg-arabic-sand/30 border border-arabic-gold/30;
+    box-shadow: 0 8px 32px rgba(217, 119, 6, 0.2);
+  }
+  
+  /* Arabic decorative elements */
+  .arabic-ornament {
+    position: relative;
+  }
+  
+  .arabic-ornament::before,
+  .arabic-ornament::after {
+    content: '✦';
+    position: absolute;
+    color: #d97706;
+    font-size: 1.5rem;
+    opacity: 0.3;
+  }
+  
+  .arabic-ornament::before {
+    left: -2rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .arabic-ornament::after {
+    right: -2rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  /* AI elements */
+  .ai-border {
+    position: relative;
+    border: 2px solid transparent;
+    background: linear-gradient(white, white) padding-box,
+                linear-gradient(45deg, #1e40af, #059669, #d97706) border-box;
+  }
+  
+  .ai-circuit {
+    background-image: 
+      radial-gradient(circle at 25% 25%, #059669 2px, transparent 2px),
+      radial-gradient(circle at 75% 75%, #d97706 2px, transparent 2px);
+    background-size: 24px 24px;
+    opacity: 0.1;
+  }
+  
+  /* Typography */
+  .text-arabic {
+    font-family: 'Amiri', 'Cairo', serif;
+    line-height: 1.8;
+  }
+  
+  .text-ai {
+    font-family: 'Orbitron', monospace;
+    letter-spacing: 0.05em;
+  }
+  
+  .heading-arabic {
+    font-family: 'Cairo', 'Inter', sans-serif;
+    font-weight: 700;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+  
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+  
+  .animation-delay-600 {
+    animation-delay: 600ms;
+  }
+  
+  .animation-delay-800 {
+    animation-delay: 800ms;
+  }
+  
+  .animation-delay-1000 {
+    animation-delay: 1000ms;
+  }
+  
+  /* Arabic-specific utilities */
+  .rtl {
+    direction: rtl;
+  }
+  
+  .ltr {
+    direction: ltr;
+  }
+  
+  /* AI glow effects */
+  .glow-gold {
+    box-shadow: 0 0 20px rgba(217, 119, 6, 0.3);
+  }
+  
+  .glow-blue {
+    box-shadow: 0 0 20px rgba(30, 64, 175, 0.3);
+  }
+  
+  .glow-green {
+    box-shadow: 0 0 20px rgba(5, 150, 105, 0.3);
+  }
+}
+
+/* Custom scrollbar with Arabic colors */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: linear-gradient(180deg, #f7f9fc 0%, #eef2f7 100%);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #d97706 0%, #c2630c 100%);
+  border-radius: 6px;
+  border: 2px solid #f7f9fc;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #c2630c 0%, #a1520e 100%);
+}
+
+/* Arabic geometric patterns */
+.geometric-pattern {
+  background-image: 
+    conic-gradient(from 0deg at 50% 50%, 
+      transparent 0deg, 
+      rgba(217, 119, 6, 0.1) 60deg, 
+      transparent 120deg,
+      rgba(5, 150, 105, 0.1) 180deg,
+      transparent 240deg,
+      rgba(30, 64, 175, 0.1) 300deg,
+      transparent 360deg
+    );
+  background-size: 40px 40px;
+}
+
+/* AI neural network animation */
+@keyframes neural-pulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+.neural-network {
+  animation: neural-pulse 3s ease-in-out infinite;
+}
+
+/* Arabic calligraphy inspired decorations */
+.arabic-decoration {
+  position: relative;
+}
+
+.arabic-decoration::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #d97706, transparent);
+  border-radius: 2px;
+}
+
+.arabic-decoration::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #059669, transparent);
+  border-radius: 2px;
+}
+
