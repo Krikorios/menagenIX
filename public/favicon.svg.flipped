@@ -29,16 +29,16 @@
         stroke="#fbbf24" 
         stroke-width="0.5"/>
   
-  <!-- Corrected MXN inside shield - M shape with correct orientation -->
+  <!-- Simplified MXN inside shield -->
   <path 
-    d="M16 8 L12 13 L16 18 L20 13 L16 8 Z M11 20 L7 24 L16 18 L25 24 L21 20 L16 14 L11 20 Z" 
+    d="M9 8 L16 18 L23 8 M11 24 L16 18 L21 24" 
     stroke="#fbbf24" 
-    stroke-width="1" 
-    fill="url(#logoGold)"
+    stroke-width="1.5" 
+    fill="none"
     filter="url(#glow)" />
     
   <!-- AI circuit pattern -->
   <circle cx="16" cy="18" r="1.5" fill="#10b981" opacity="0.9" filter="url(#glow)"/>
-  <circle cx="13" cy="21" r="1" fill="#10b981" opacity="0.8" filter="url(#glow)"/>
-  <circle cx="19" cy="21" r="1" fill="#10b981" opacity="0.8" filter="url(#glow)"/>
+  <circle cx="13" cy="15" r="1" fill="#10b981" opacity="0.8" filter="url(#glow)"/>
+  <circle cx="19" cy="15" r="1" fill="#10b981" opacity="0.8" filter="url(#glow)"/>
 </svg>

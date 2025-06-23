@@ -16,33 +16,33 @@ const Logo = ({
   useImage = true
 }: LogoProps) => {
   const sizeClasses = {
-    sm: 'w-8 h-10',
-    md: 'w-12 h-14',
-    lg: 'w-16 h-20',
-    xl: 'w-20 h-24'
+    sm: 'w-8 h-8',
+    md: 'w-12 h-12',
+    lg: 'w-16 h-16',
+    xl: 'w-24 h-24'
   }
 
   const textSizeClasses = {
-    sm: 'text-xl',
+    sm: 'text-lg',
     md: 'text-2xl',
-    lg: 'text-4xl',
-    xl: 'text-5xl'
+    lg: 'text-3xl',
+    xl: 'text-4xl'
   }
 
   return (
-    <div className={`flex items-center space-x-4 ${className}`}>
+    <div className={`flex items-center space-x-3 ${className}`}>
       <motion.div
-        className={`relative ${sizeClasses[size]} logo-glow shield-logo`}
+        className={`relative ${sizeClasses[size]}`}
         initial={animated ? { scale: 0, rotate: -180 } : {}}
         animate={animated ? { scale: 1, rotate: 0 } : {}}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        whileHover={animated ? { scale: 1.1, rotate: 5 } : {}}
+        whileHover={animated ? { scale: 1.05, rotate: 5 } : {}}
       >
         {useImage ? (
           <img 
-            src="/images/MXN-LOGO-shield-fixed.svg" 
+            src="/images/mxn-logo.png" 
             alt="Menagenix Logo"
-            className="w-full h-full object-contain logo-shadow"
+            className="w-full h-full object-contain"
           />
         ) : (
           <svg
@@ -54,15 +54,15 @@ const Logo = ({
             {/* Original SVG content from your Logo */}
             <defs>
               <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#d97706" />
-                <stop offset="50%" stopColor="#f59e0b" />
-                <stop offset="100%" stopColor="#fbbf24" />
-              </linearGradient>
-              
-              <linearGradient id="logoGradientHover" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stopColor="#1e40af" />
                 <stop offset="50%" stopColor="#3b82f6" />
                 <stop offset="100%" stopColor="#60a5fa" />
+              </linearGradient>
+              
+              <linearGradient id="logoGradientHover" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#d97706" />
+                <stop offset="50%" stopColor="#f59e0b" />
+                <stop offset="100%" stopColor="#fbbf24" />
               </linearGradient>
             </defs>
             
@@ -125,7 +125,7 @@ const Logo = ({
               cx="100"
               cy="100"
               r="3"
-              fill="#059669"
+              fill="#10b981"
               initial={animated ? { scale: 0 } : {}}
               animate={animated ? { scale: [0, 1.2, 1] } : {}}
               transition={{ duration: 0.8, delay: 0.8, repeat: Infinity, repeatDelay: 3 }}
@@ -135,7 +135,7 @@ const Logo = ({
               cx="85"
               cy="85"
               r="2"
-              fill="#059669"
+              fill="#10b981"
               initial={animated ? { scale: 0 } : {}}
               animate={animated ? { scale: [0, 1.2, 1] } : {}}
               transition={{ duration: 0.8, delay: 1, repeat: Infinity, repeatDelay: 3 }}
@@ -145,7 +145,7 @@ const Logo = ({
               cx="115"
               cy="115"
               r="2"
-              fill="#059669"
+              fill="#10b981"
               initial={animated ? { scale: 0 } : {}}
               animate={animated ? { scale: [0, 1.2, 1] } : {}}
               transition={{ duration: 0.8, delay: 1.2, repeat: Infinity, repeatDelay: 3 }}
@@ -156,10 +156,10 @@ const Logo = ({
         {/* Glow effect */}
         {animated && (
           <motion.div
-            className="absolute inset-0 bg-amber-400/30 rounded-full blur-xl"
+            className="absolute inset-0 bg-blue-400/20 rounded-full blur-xl"
             animate={{
-              scale: [1, 1.3, 1],
-              opacity: [0.4, 0.7, 0.4]
+              scale: [1, 1.2, 1],
+              opacity: [0.3, 0.6, 0.3]
             }}
             transition={{
               duration: 3,
@@ -181,7 +181,7 @@ const Logo = ({
             Menagenix
           </span>
           {size !== 'sm' && (
-            <span className="text-sm text-ai text-arabic-gold tracking-wider font-medium">
+            <span className="text-xs text-ai text-arabic-gold/70 tracking-wider font-medium">
               مناجينكس • AI EVOLVED
             </span>
           )}

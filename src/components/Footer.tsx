@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
-import { Shield, Mail, Phone, MapPin, Linkedin, Twitter, Github } from 'lucide-react'
+import { Phone, MapPin, Linkedin, Twitter, Github } from 'lucide-react'
+import Logo from './Logo'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
@@ -38,11 +39,12 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-1">
-            <Link to="/" className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center">
-                <Shield className="w-6 h-6 text-white" />
-              </div>
-              <span className="text-2xl font-bold">Menagenix</span>
+            <Link to="/" className="mb-4 block">
+              <Logo 
+                size="sm" 
+                animated={false} 
+                showText={true}
+              />
             </Link>
             <p className="text-gray-300 mb-6 text-sm leading-relaxed">
               Leading provider of enterprise technology solutions, specializing in cybersecurity, 

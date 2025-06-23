@@ -10,18 +10,15 @@ import {
   CheckCircle, 
   ArrowRight,
   Zap,
-  Lock,
-  Cpu,
   Database,
-  GitBranch,
-  Monitor,
   Sparkles,
-  Star,
-  Globe,
   Network
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import ArabicPattern from '../components/ArabicPattern'
+import TrustIndicators from '../components/TrustIndicators'
+import EmergencyContact from '../components/EmergencyContact'
+import CaseStudies from '../components/CaseStudies'
 
 const Home = () => {
   const [heroRef, heroInView] = useInView({ threshold: 0.1 })
@@ -101,8 +98,11 @@ const Home = () => {
 
   return (
     <div className="min-h-screen">
+      {/* Emergency Contact Banner */}
+      <EmergencyContact />
+
       {/* Hero Section */}
-      <section ref={heroRef} className="gradient-bg min-h-screen flex items-center justify-center relative overflow-hidden">
+      <section ref={heroRef} className="gradient-bg min-h-[90vh] flex items-center justify-center relative overflow-hidden pt-16">
         {/* Arabic Pattern Background */}
         <ArabicPattern className="opacity-30" />
         
@@ -111,7 +111,7 @@ const Home = () => {
         {/* AI Circuit Pattern */}
         <div className="absolute inset-0 ai-circuit opacity-20"></div>
         
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mt-10">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={heroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
@@ -131,19 +131,19 @@ const Home = () => {
             </motion.div>
             
             <motion.h1 
-              className="text-5xl md:text-7xl font-bold mb-8 leading-tight"
+              className="text-4xl md:text-6xl font-bold mb-10 leading-tight pt-6"
               initial={{ opacity: 0, y: 30 }}
               animate={heroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              <span className="heading-arabic block mb-2">
+              <span className="heading-arabic block mb-4">
                 Enterprise Technology
               </span>
-              <span className="gradient-text-ai text-6xl md:text-8xl">
+              <span className="gradient-text-ai text-5xl md:text-7xl">
                 AI EVOLVED
               </span>
               <br />
-              <span className="text-accent-400 text-4xl md:text-6xl">
+              <span className="text-accent-400 text-3xl md:text-5xl">
                 Solutions
               </span>
             </motion.h1>
@@ -247,6 +247,68 @@ const Home = () => {
           >
             <div className="w-8 h-8 bg-secondary-400 rounded-full glow-blue" />
           </motion.div>
+        </div>
+      </section>
+
+      {/* Security Focus Section */}
+      <section className="bg-gradient-to-r from-red-50 to-blue-50 py-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Live Threat Counter */}
+          <div className="text-center mb-12">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-red-600 to-blue-600 text-white rounded-full shadow-lg mb-6"
+            >
+              <div className="w-3 h-3 bg-red-400 rounded-full animate-pulse mr-3"></div>
+              <span className="font-mono text-sm">LIVE: <span className="font-bold">42,847</span> cyber threats blocked today</span>
+              <Shield className="w-4 h-4 ml-3" />
+            </motion.div>
+            
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Your <span className="text-red-600">Digital Security</span> is Our Priority
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Enterprise-grade cybersecurity with AI-powered threat detection and ISO 27001 compliance
+            </p>
+          </div>
+
+          {/* Security Features Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="bg-white p-8 rounded-lg shadow-lg border-l-4 border-red-600 hover:shadow-xl transition-shadow"
+            >
+              <Shield className="w-12 h-12 text-red-600 mb-6" />
+              <h3 className="text-xl font-bold text-gray-900 mb-3">AI Threat Detection</h3>
+              <p className="text-gray-600">Real-time monitoring with machine learning algorithms that adapt to emerging threats</p>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="bg-white p-8 rounded-lg shadow-lg border-l-4 border-blue-600 hover:shadow-xl transition-shadow"
+            >
+              <Award className="w-12 h-12 text-blue-600 mb-6" />
+              <h3 className="text-xl font-bold text-gray-900 mb-3">ISO 27001 Certified</h3>
+              <p className="text-gray-600">Internationally recognized information security management systems and compliance</p>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="bg-white p-8 rounded-lg shadow-lg border-l-4 border-green-600 hover:shadow-xl transition-shadow"
+            >
+              <Brain className="w-12 h-12 text-green-600 mb-6" />
+              <h3 className="text-xl font-bold text-gray-900 mb-3">24/7 AI Monitoring</h3>
+              <p className="text-gray-600">Continuous security oversight with intelligent incident response and automated alerts</p>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -366,6 +428,9 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Trust Indicators Section */}
+      <TrustIndicators />
+
       {/* Stats Section */}
       <section ref={statsRef} className="section gradient-bg">
         <div className="container">
@@ -421,6 +486,9 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* Case Studies Section */}
+      <CaseStudies />
 
       {/* CTA Section */}
       <section ref={ctaRef} className="section bg-secondary-900 text-white">

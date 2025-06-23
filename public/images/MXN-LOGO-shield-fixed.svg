@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg viewBox="0 0 400 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Shield background with gradient -->
+  <defs>
+    <linearGradient id="shieldGradient" x1="0" y1="0" x2="400" y2="450" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#d97706"/>
+      <stop offset="0.5" stop-color="#1e40af"/>
+      <stop offset="1" stop-color="#059669"/>
+    </linearGradient>
+    <linearGradient id="logoGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d97706" />
+      <stop offset="50%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#fbbf24" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="5" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  
+  <!-- Shield shape -->
+  <path d="M200 5 
+           C300 5 375 50 395 75 
+           C395 175 395 275 350 350 
+           C300 400 225 440 200 445 
+           C175 440 100 400 50 350 
+           C5 275 5 175 5 75 
+           C25 50 100 5 200 5 Z" 
+        fill="url(#shieldGradient)" 
+        stroke="#fbbf24" 
+        stroke-width="2"/>
+  
+  <!-- MXN Logo with CORRECT orientation (right-side up) -->
+  <g transform="translate(50, 120) scale(0.35)">
+    <!-- This is the original M part - correctly oriented -->
+    <path d="m 332.50499,258.00799 29.91942,38.0029 -38.05179,50.5497 -29.74707,-38.232 z m -104.57225,138.9177 29.61236,38.4112 -113.97185,151.4049 59.03712,0.2897 72.77881,-96.6821 76.33604,97.3038 59.40531,-0.2574 -221.30131,-290.3085 27.88829,-37.2107 283.82425,373.4903 -173.81401,0.7532 -50.90928,-69.0511 -51.58989,68.5341 -175.03554,-0.5604 z"
+       style="fill:url(#logoGold);fill-opacity:1;fill-rule:evenodd;stroke:#fbbf24;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:2.61313;stroke-dasharray:none;stroke-opacity:1"
+       filter="url(#glow)" />
+    
+    <!-- XN letters - correctly oriented -->
+    <path d="m 151.5875,375.5802 h 22.127 V 556.9677 H 150.2297 V 415.8296 L 99.985,485.9553 H 95.6316 L 44.788,415.8296 V 556.9677 H 21.3032 V 375.5802 h 22.5261 l 54.0388,74.5143 z m 175.6962,0 h 28.2775 l -65.4616,87.4137 70.0149,93.9738 h -28.5573 l -55.6365,-75.0906 -56.2357,75.0906 h -28.2773 l 70.2545,-93.7967 -65.2221,-87.5908 h 28.5573 l 51.3227,68.8847 z m 181.1681,0 h 22.2866 V 556.9677 H 510.5687 L 401.3328,417.2923 V 556.9677 h -22.0473 V 375.5802 h 19.0117 L 508.4518,516.4524 Z"
+       style="fill:white;fill-opacity:0.9;fill-rule:nonzero;stroke:#fbbf24;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:2.61313;stroke-dasharray:none;stroke-opacity:1"
+       filter="url(#glow)" />
+  </g>
+  
+  <!-- AI circuit pattern -->
+  <circle cx="200" cy="320" r="8" fill="#10b981" opacity="0.9" filter="url(#glow)"/>
+  <circle cx="175" cy="290" r="5" fill="#10b981" opacity="0.8" filter="url(#glow)"/>
+  <circle cx="225" cy="290" r="5" fill="#10b981" opacity="0.8" filter="url(#glow)"/>
+  
+  <!-- Connecting lines (neural network) -->
+  <path d="M175 290 L200 320 L225 290" stroke="#10b981" stroke-width="2" opacity="0.8"/>
+</svg>

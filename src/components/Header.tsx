@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Menu, X, Shield, Cpu, Cloud, Settings, Phone, Sparkles, Zap } from 'lucide-react'
+import { Menu, X, Shield, Cpu, Cloud, Settings, Phone, Zap } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
+import Logo from './Logo'
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -27,41 +28,24 @@ const Header = () => {
   return (
     <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${
       isScrolled 
-        ? 'glass-arabic shadow-2xl backdrop-blur-md border-b border-arabic-gold/20' 
-        : 'bg-transparent'
+        ? 'bg-white/98 backdrop-blur-md shadow-lg border-b border-gray-200/50' 
+        : 'bg-white/95 backdrop-blur-sm shadow-md'
     }`}>
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
+        <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3 group">
-            <div className="relative">
-              <div className="w-12 h-12 gradient-arabic rounded-arabic flex items-center justify-center group-hover:scale-105 transition-all duration-300 shadow-lg glow-gold">
-                <Shield className="w-7 h-7 text-white" />
-                {/* AI sparkle effect */}
-                <motion.div
-                  className="absolute -top-1 -right-1 w-4 h-4 bg-accent-500 rounded-full flex items-center justify-center"
-                  animate={{ scale: [1, 1.2, 1], rotate: [0, 180, 360] }}
-                  transition={{ duration: 3, repeat: Infinity }}
-                >
-                  <Sparkles className="w-2 h-2 text-white" />
-                </motion.div>
-              </div>
-              {/* Geometric decoration */}
-              <div className="absolute -inset-2 opacity-30">
-                <svg className="w-full h-full" viewBox="0 0 64 64">
-                  <path d="M32 8 L40 24 L56 24 L44 36 L48 52 L32 44 L16 52 L20 36 L8 24 L24 24 Z" 
-                        fill="none" stroke="currentColor" strokeWidth="1" className="text-arabic-gold" />
-                </svg>
-              </div>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-2xl font-bold heading-arabic gradient-text">Menagenix</span>
-              <span className="text-xs text-ai text-arabic-gold/70 tracking-wider">مناجينكس • AI EVOLVED</span>
-            </div>
+          <Link to="/" className="group flex-shrink-0">
+            <Logo 
+              size="sm" 
+              animated={true} 
+              showText={true} 
+              useImage={true}
+              className="hover:scale-105 transition-transform duration-300" 
+            />
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6">
+          <div className="hidden md:flex items-center space-x-8 flex-1 justify-center">
             {navigation.map((item, index) => {
               const isActive = location.pathname === item.href
               return (
@@ -73,29 +57,26 @@ const Header = () => {
                 >
                   <Link
                     to={item.href}
-                    className={`relative flex items-center space-x-2 px-4 py-3 rounded-arabic text-sm font-semibold transition-all duration-300 group ${
+                    className={`relative flex items-center space-x-2 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 group ${
                       isActive 
-                        ? 'text-white bg-gradient-arabic shadow-lg glow-gold' 
-                        : 'text-arabic-midnight hover:text-arabic-gold hover:bg-arabic-sand/30'
+                        ? 'text-arabic-gold bg-arabic-gold/10' 
+                        : 'text-gray-600 hover:text-arabic-gold hover:bg-gray-50'
                     }`}
                   >
                     <item.icon className={`w-4 h-4 transition-transform duration-300 ${
-                      isActive ? 'text-white' : 'group-hover:scale-110'
+                      isActive ? 'text-arabic-gold' : 'group-hover:scale-110'
                     }`} />
-                    <span className="heading-arabic">{item.name}</span>
+                    <span>{item.name}</span>
                     
-                    {/* Arabic ornament */}
+                    {/* Active indicator dot */}
                     {isActive && (
                       <motion.div
-                        className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-accent-400 rounded-full"
+                        className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-arabic-gold rounded-full"
                         layoutId="activeIndicator"
                         initial={false}
                         transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
                       />
                     )}
-                    
-                    {/* Hover effect */}
-                    <div className="absolute inset-0 rounded-arabic border border-arabic-gold/0 group-hover:border-arabic-gold/30 transition-all duration-300" />
                   </Link>
                 </motion.div>
               )
@@ -103,36 +84,35 @@ const Header = () => {
             
             {/* AI indicator */}
             <motion.div
-              className="flex items-center space-x-1 px-3 py-1 bg-gradient-to-r from-secondary-600/10 to-accent-600/10 rounded-full border border-secondary-600/20"
+              className="flex items-center space-x-1 px-2 py-1 bg-blue-50 rounded-full border border-blue-200"
               animate={{ 
                 boxShadow: [
-                  '0 0 10px rgba(30, 64, 175, 0.3)',
-                  '0 0 20px rgba(5, 150, 105, 0.3)',
-                  '0 0 10px rgba(30, 64, 175, 0.3)'
+                  '0 0 5px rgba(59, 130, 246, 0.2)',
+                  '0 0 10px rgba(16, 185, 129, 0.2)',
+                  '0 0 5px rgba(59, 130, 246, 0.2)'
                 ]
               }}
               transition={{ duration: 2, repeat: Infinity }}
             >
-              <Zap className="w-3 h-3 text-secondary-600" />
-              <span className="text-xs text-ai text-secondary-700 font-medium">AI POWERED</span>
+              <Zap className="w-3 h-3 text-blue-600" />
+              <span className="text-xs text-blue-700 font-medium">AI POWERED</span>
             </motion.div>
           </div>
 
           {/* CTA Button */}
-          <div className="hidden md:block">
-            <Link to="/contact" className="btn btn-primary relative overflow-hidden group">
-              <span className="relative z-10">ابدأ الآن • Get Started</span>
-              {/* Arabic decorative border */}
-              <div className="absolute inset-0 border-2 border-arabic-gold/30 rounded-arabic group-hover:border-arabic-gold/60 transition-all duration-300" />
-              {/* Shimmer effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+          <div className="hidden md:block flex-shrink-0">
+            <Link 
+              to="/contact" 
+              className="inline-flex items-center px-5 py-2 bg-gradient-to-r from-orange-400 to-orange-500 text-white font-medium rounded-lg shadow hover:shadow-lg transition-all duration-300 hover:scale-105"
+            >
+              <span>Get Started • ابدأ الآن</span>
             </Link>
           </div>
 
           {/* Mobile menu button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-3 rounded-arabic bg-gradient-arabic text-white shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
+            className="md:hidden p-2 rounded-lg bg-gradient-to-r from-arabic-gold to-arabic-desert text-white shadow-lg hover:shadow-xl transition-all duration-300"
             aria-label="Toggle mobile menu"
           >
             <motion.div
@@ -141,8 +121,6 @@ const Header = () => {
             >
               {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </motion.div>
-            {/* Arabic geometric decoration */}
-            <div className="absolute inset-0 border border-arabic-gold/30 rounded-arabic group-hover:border-arabic-gold/60 transition-all duration-300" />
           </button>
         </div>
 
@@ -156,7 +134,7 @@ const Header = () => {
               transition={{ duration: 0.3 }}
               className="md:hidden overflow-hidden"
             >
-              <div className="py-4 space-y-2 border-t border-gray-200/20">
+              <div className="py-4 space-y-2 border-t border-gray-200">
                 {navigation.map((item) => {
                   const isActive = location.pathname === item.href
                   return (
@@ -164,35 +142,34 @@ const Header = () => {
                       key={item.name}
                       to={item.href}
                       onClick={() => setIsOpen(false)}
-                      className={`flex items-center space-x-3 px-4 py-4 rounded-arabic text-base font-semibold transition-all duration-300 relative overflow-hidden ${
+                      className={`flex items-center space-x-3 px-4 py-3 rounded-lg text-base font-semibold transition-all duration-300 ${
                         isActive 
-                          ? 'text-white bg-gradient-arabic shadow-lg' 
-                          : 'text-arabic-midnight hover:text-arabic-gold hover:bg-arabic-sand/50'
+                          ? 'text-white bg-gradient-to-r from-arabic-gold to-arabic-desert shadow-lg' 
+                          : 'text-gray-700 hover:text-arabic-gold hover:bg-gray-100'
                       }`}
                     >
                       <item.icon className="w-5 h-5" />
-                      <span className="heading-arabic">{item.name}</span>
+                      <span>{item.name}</span>
                       {/* Mobile active indicator */}
                       {isActive && (
-                        <div className="absolute right-3 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-accent-400 rounded-full" />
+                        <div className="ml-auto w-2 h-2 bg-white rounded-full" />
                       )}
                     </Link>
                   )
                 })}
-                <div className="pt-6 border-t border-arabic-gold/20">
+                <div className="pt-4 border-t border-gray-200">
                   <Link
                     to="/contact"
                     onClick={() => setIsOpen(false)}
-                    className="btn btn-primary w-full text-center relative overflow-hidden group"
+                    className="block w-full text-center px-6 py-3 bg-gradient-to-r from-arabic-gold to-arabic-desert text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
                   >
-                    <span className="relative z-10">ابدأ الآن • Get Started</span>
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+                    Get Started • ابدأ الآن
                   </Link>
                   
                   {/* Mobile AI indicator */}
-                  <div className="flex items-center justify-center space-x-2 mt-4 px-3 py-2 bg-gradient-to-r from-secondary-600/10 to-accent-600/10 rounded-arabic border border-secondary-600/20">
-                    <Zap className="w-4 h-4 text-secondary-600" />
-                    <span className="text-sm text-ai text-secondary-700 font-medium">AI POWERED SOLUTIONS</span>
+                  <div className="flex items-center justify-center space-x-2 mt-4 px-3 py-2 bg-gradient-to-r from-blue-50 to-emerald-50 rounded-lg border border-blue-200">
+                    <Zap className="w-4 h-4 text-blue-600" />
+                    <span className="text-sm text-blue-700 font-medium">AI POWERED SOLUTIONS</span>
                   </div>
                 </div>
               </div>

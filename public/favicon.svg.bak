@@ -1,0 +1,33 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="32" height="32" rx="6" fill="url(#arabicGradient)"/>
+  
+  <!-- Arabic 8-pointed star pattern -->
+  <path d="M16 4 L18.5 9.5 L24 9.5 L19.5 13 L21 18.5 L16 15.5 L11 18.5 L12.5 13 L8 9.5 L13.5 9.5 Z" 
+        fill="white" opacity="0.9"/>
+  
+  <!-- Central AI core -->
+  <circle cx="16" cy="12" r="3" fill="url(#aiCore)" opacity="0.8"/>
+  
+  <!-- AI circuit pattern -->
+  <circle cx="12" cy="8" r="1" fill="#10b981" opacity="0.6"/>
+  <circle cx="20" cy="8" r="1" fill="#10b981" opacity="0.6"/>
+  <circle cx="16" cy="20" r="1" fill="#10b981" opacity="0.6"/>
+  
+  <!-- Connecting lines (neural network) -->
+  <path d="M12 8 L16 12 L20 8" stroke="#10b981" stroke-width="0.5" opacity="0.4"/>
+  <path d="M16 12 L16 20" stroke="#10b981" stroke-width="0.5" opacity="0.4"/>
+  
+  <defs>
+    <linearGradient id="arabicGradient" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#d97706"/>
+      <stop offset="0.5" stop-color="#1e40af"/>
+      <stop offset="1" stop-color="#059669"/>
+    </linearGradient>
+    
+    <radialGradient id="aiCore" cx="50%" cy="50%" r="50%">
+      <stop stop-color="#10b981"/>
+      <stop offset="1" stop-color="#059669"/>
+    </radialGradient>
+  </defs>
+</svg>
+
